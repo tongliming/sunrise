@@ -1,7 +1,7 @@
 server:
-  port: 9020
+  port: 9030
   servlet:
-    context-path: /auth
+    context-path: /spike
 
 spring:
   application:
@@ -12,16 +12,10 @@ spring:
         enabled: true
         server-addr: 127.0.0.1:8848
         namespace: 68bc1e7b-37af-442e-a741-0559b03a8e94
+      config:
+        import-check:
+          enabled: false
 
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: none
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-    open-in-view: false # Open Session in View（OSIV）
 
   datasource:
     # 数据源
@@ -43,3 +37,8 @@ spring:
       max-lifetime: 45000
       auto-commit: true
       pool-name: SunriseHikariPool
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1
+    timeout: 3000

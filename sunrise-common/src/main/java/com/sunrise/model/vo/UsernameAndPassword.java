@@ -1,20 +1,19 @@
-package com.sunrise.vo;
+package com.sunrise.model.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 /**
  * @program: sunrise
- * @description: 授权中心鉴权后提供给客户端的Token
+ * @description: 登录对象
  * @author: T.LM
  * @date: 2023-03-02 20:09
  **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JwtToken implements Serializable {
-    private String token;
+public class UsernameAndPassword {
+    private String username;
+    private String password;
 }

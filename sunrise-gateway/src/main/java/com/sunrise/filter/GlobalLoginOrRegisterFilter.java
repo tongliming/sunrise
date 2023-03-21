@@ -5,12 +5,10 @@ import com.alibaba.fastjson2.JSON;
 import com.sunrise.constant.CommonConstant;
 import com.sunrise.constant.GatewayConstant;
 import com.sunrise.util.TokenParseUtil;
-import com.sunrise.vo.CommonResponse;
-import com.sunrise.vo.JwtToken;
-import com.sunrise.vo.LoginUserInfo;
-import com.sunrise.vo.UsernameAndPassword;
+import com.sunrise.model.vo.JwtToken;
+import com.sunrise.model.vo.LoginUserInfo;
+import com.sunrise.model.vo.UsernameAndPassword;
 import lombok.extern.slf4j.Slf4j;
-import lombok.val;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -29,7 +27,6 @@ import reactor.core.publisher.Mono;
 
 import java.nio.CharBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -92,7 +89,10 @@ public class GlobalLoginOrRegisterFilter implements GlobalFilter, Ordered {
             response.setStatusCode(HttpStatus.OK);
             return response.setComplete();
         }
-
+        // 放行接口
+        if (request.getURI().getPath().contains(GatewayConstant.SECKILL_ADD)) {
+            return chain.filter(exchange);
+        }
         // 3. 访问其他的服务, 则鉴权, 校验是否能够从 Token 中解析出用户信息
         HttpHeaders headers = request.getHeaders();
         String token = headers.getFirst(CommonConstant.JWT_USER_INFO_KEY);

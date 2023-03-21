@@ -1,6 +1,7 @@
 package com.sunrise.advice;
 
-import com.sunrise.vo.CommonResponse;
+import com.sunrise.exception.ParameterException;
+import com.sunrise.model.base.CommonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -16,6 +17,18 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionAdvice {
+
+
+    @ExceptionHandler(value = ParameterException.class)
+    public CommonResponse<String> handlerParameterException(HttpServletRequest request,
+                                                   Exception exception) {
+        ParameterException parameterException = (ParameterException) exception;
+        CommonResponse<String> commonResponse = new CommonResponse<>(
+                parameterException.getErrorCode(), parameterException.getMessage()
+        );
+        log.error("sunrise service parameter has error: [{}]", parameterException.getMessage(), parameterException);
+        return commonResponse;
+    }
 
     @ExceptionHandler(value = Exception.class)
     public CommonResponse<String> handlerException(HttpServletRequest request,

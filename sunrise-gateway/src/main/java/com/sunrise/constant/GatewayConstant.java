@@ -10,6 +10,8 @@ public class GatewayConstant {
 
     /** 注册 uri */
     public static final String REGISTER_URI = "/register";
+    /** 商家添加代金券 uri */
+    public static final String SECKILL_ADD = "/spike/add";
 
     /** 去授权中心拿到登录 token 的 uri 格式化接口 */
     public static final String AUTHORITY_CENTER_TOKEN_URL_FORMAT =

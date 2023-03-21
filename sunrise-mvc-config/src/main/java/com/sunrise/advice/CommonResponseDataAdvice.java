@@ -1,7 +1,7 @@
 package com.sunrise.advice;
 
 import com.sunrise.annotation.IgnoreResponseAdvice;
-import com.sunrise.vo.CommonResponse;
+import com.sunrise.model.base.CommonResponse;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;

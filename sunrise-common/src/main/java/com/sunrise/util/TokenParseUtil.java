@@ -3,7 +3,7 @@ package com.sunrise.util;
 import cn.hutool.core.codec.Base64;
 import com.alibaba.fastjson2.JSON;
 import com.sunrise.constant.CommonConstant;
-import com.sunrise.vo.LoginUserInfo;
+import com.sunrise.model.vo.LoginUserInfo;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -54,6 +54,11 @@ public class TokenParseUtil {
         );
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         return keyFactory.generatePublic(keySpec);
+    }
+
+    public static void main(String[] args) throws Exception {
+        String token = "eyJhbGciOiJSUzI1NiJ9.eyJTdW5yaXNlLVVzZXIiOiJ7XCJpZFwiOjU5OTIsXCJ1c2VybmFtZVwiOlwidGVzdDE5OTVcIn0iLCJqdGkiOiI3ZjhlNzY5OC1iYWMwLTRmNTMtOGJjOC01ZjdmMjcwMTBjZWUiLCJleHAiOjE2ODAxOTIwMDB9.hHsgrjhpFdYNfMAtsN7wDXzcuN9v9bvbQ3e7oRtYnNpReLk5BO17NLWq6C-Qz-0m4hghKzQ_aYhrzA_6M8SeVbqLKkGllkEr-HrlRfUOKZpikEJ9uum-jfdHy8Yp-WDob5dDjwTdUFryySQRj_F02iihgNb1LY_O_UWGccPhX6_sbEWgahwPofw5iZQ13f1yAWhS09DSCF0yONAmcvki6YWJYwQbA75C9PiSNuQ0wf-CLHWW7NwvewrM81JQnRMvdNQSXlMwIeTcfIJO_aARPJvkYM5XrU1J4271NvA8p_Cm70TN1pxa-zyRdydVg7hQ57t89LYIRN2H3mVGxT_EfQ";
+        LoginUserInfo loginUserInfo = parseFromToken(token);
     }
 
 }

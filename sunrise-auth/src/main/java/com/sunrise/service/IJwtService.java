@@ -1,6 +1,6 @@
 package com.sunrise.service;
 
-import com.sunrise.vo.UsernameAndPassword;
+import com.sunrise.model.vo.UsernameAndPassword;
 
 /**
  * @program: sunrise

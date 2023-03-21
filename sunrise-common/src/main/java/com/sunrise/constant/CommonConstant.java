@@ -8,7 +8,7 @@ package com.sunrise.constant;
  **/
 public class CommonConstant {
 
-    public static final String JWT_USER_INFO_KEY = "sunrise-user";
+    public static final String JWT_USER_INFO_KEY = "Sunrise-User";
     public static final String AUTHORITY_SERVICE_ID = "sunrise-auth";
 
     public static final String AUTH_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArUg7s883Hiwl" +

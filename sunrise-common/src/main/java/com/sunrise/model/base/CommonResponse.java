@@ -1,4 +1,4 @@
-package com.sunrise.vo;
+package com.sunrise.model.base;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -7,8 +7,8 @@ import com.sunrise.constant.AuthorityConstant;
 import com.sunrise.constant.CommonConstant;
 import com.sunrise.dao.SunriseUserDao;
 import com.sunrise.entity.SunriseUser;
-import com.sunrise.vo.LoginUserInfo;
-import com.sunrise.vo.UsernameAndPassword;
+import com.sunrise.model.vo.LoginUserInfo;
+import com.sunrise.model.vo.UsernameAndPassword;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
@@ -105,8 +105,9 @@ public class JwtServiceImpl implements IJwtService {
         }
         SunriseUser sunriseUser = new SunriseUser();
         sunriseUser.setUsername(usernameAndPassword.getUsername());
+        sunriseUser.setNickname(usernameAndPassword.getUsername());
         sunriseUser.setPassword(usernameAndPassword.getPassword()); // MD5加密过
-        sunriseUser.setExtraInfo("{}");
+        sunriseUser.setIsValid(0);
 
         sunriseUser = sunriseUserDao.save(sunriseUser);
         log.info("register user success, [{}]", JSON.toJSONString(sunriseUser));

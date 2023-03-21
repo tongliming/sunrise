@@ -22,31 +22,45 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "sunrise_user")
+@Table(name = "t_diners")
 public class SunriseUser implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name = "username", nullable = false)
     private String username;
 
+    @Column(name = "nickname", nullable = false)
+    private String nickname;
+
     @Column(name = "password", nullable = false)
     private String password;
 
-    /** 额外的信息, json 字符串存储 */
-    @Column(name = "extra_info", nullable = false)
-    private String extraInfo;
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "avatar_url")
+    private String avatarUrl;
+
+    @Column(name = "roles")
+    private String roles;
+
+    @Column(name = "is_valid")
+    private Integer isValid;
 
     /** 创建时间 */
     @CreatedDate
-    @Column(name = "create_time", nullable = false)
-    private Date createTime;
+    @Column(name = "create_date", nullable = false)
+    private Date createDate;
 
     /** 更新时间 */
     @LastModifiedDate
-    @Column(name = "update_time", nullable = false)
-    private Date updateTime;
+    @Column(name = "update_date", nullable = false)
+    private Date updateDate;
 }

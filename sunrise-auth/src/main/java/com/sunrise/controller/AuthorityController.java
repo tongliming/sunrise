@@ -2,8 +2,8 @@ package com.sunrise.controller;
 
 import com.sunrise.annotation.IgnoreResponseAdvice;
 import com.sunrise.service.IJwtService;
-import com.sunrise.vo.JwtToken;
-import com.sunrise.vo.UsernameAndPassword;
+import com.sunrise.model.vo.JwtToken;
+import com.sunrise.model.vo.UsernameAndPassword;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;

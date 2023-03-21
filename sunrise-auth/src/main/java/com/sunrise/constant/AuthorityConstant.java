@@ -8,7 +8,7 @@ package com.sunrise.constant;
  **/
 public class AuthorityConstant {
 
-    public static final Integer TOKEN_EXPIRED_DAY = 1;
+    public static final Integer TOKEN_EXPIRED_DAY = 10;
 
     public static final String AUTH_PRIVATE_KEY = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCtSD" +
             "uzzzceLCUbzizH+W3yojHH5+ISqeOhk8x5VgcFaS0XuBn9SNQif+c4L3YmJMrVz383qQXtQdROmOX5hMWDmU05nvz4cp" +

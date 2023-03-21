@@ -18,6 +18,7 @@
         <module>sunrise-verify-api</module>
         <module>sunrise-gateway</module>
         <module>sunrise-verify-consumer</module>
+        <module>sunrise-spike</module>
     </modules>
 
     <groupId>com.sunrise</groupId>
