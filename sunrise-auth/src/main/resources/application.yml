@@ -1,0 +1,41 @@
+server:
+  port: 9020
+  servlet:
+    context-path: /auth
+
+spring:
+  application:
+    name: @project.artifactId@
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        namespace: 68bc1e7b-37af-442e-a741-0559b03a8e94
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    open-in-view: false # Open Session in View（OSIV）
+
+  datasource:
+    # 数据源
+    url: jdbc:mysql://192.168.25.144:3306/sunrise?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: admin
+    password: 12qw!@QW
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 连接池
+    hikari:
+      maximum-pool-size: 8
+      minimum-idle: 4
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 45000
+      auto-commit: true
+      pool-name: SunriseHikariPool

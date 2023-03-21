@@ -1,0 +1,30 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /sunrise
+
+spring:
+  application:
+    name: @project.artifactId@
+  cloud:
+    loadbalancer:
+      enabled: true
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        namespace: 68bc1e7b-37af-442e-a741-0559b03a8e94
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 68bc1e7b-37af-442e-a741-0559b03a8e94
+
+  config:
+    import:
+      - nacos:${spring.application.name}.yaml
+
+nacos:
+  gateway:
+    route:
+      config:
+        data-id: sunrise-gateway-router
+        group: sunrise

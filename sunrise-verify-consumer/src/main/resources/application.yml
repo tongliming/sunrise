@@ -1,0 +1,24 @@
+server:
+  port: 9011
+  servlet:
+    context-path: /consumer
+
+spring:
+  application:
+    name: @project.artifactId@
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        namespace: 68bc1e7b-37af-442e-a741-0559b03a8e94
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 68bc1e7b-37af-442e-a741-0559b03a8e94
+
+  rabbitmq:
+    port: 5672
+    username: admin
+    password: adimin
+    host: 192.168.25.144
+
